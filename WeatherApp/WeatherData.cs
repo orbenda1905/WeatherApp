@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-//87d6fc5d9a763fe927bfe1438407929f - api key
 namespace WeatherApp
 {
-    class WeatherData
+    public class WeatherData
     {
         public string cityName;
         public string temperature;
@@ -25,19 +24,19 @@ namespace WeatherApp
 
         public WeatherData() { }
 
-        public void ToString()
+        override
+        public string ToString()
         {
-            Debug.WriteLine(cityName + ", " + country);
-            Debug.WriteLine("Temperature: current: " + temperature + ", max-temp: " + maxTemp + "min-temo: " + minTemp);
-            Debug.WriteLine("Humidity: " + humidity);
-            Debug.WriteLine("Wind: Speed: " + windSpeed + ", Direction: " + windDirection);
-            Debug.WriteLine("Clouds: " + cloud);
-            Debug.WriteLine("Sunrise: " + sunrise + ", Sunset: " + sunset);
+            string data = @"weather data:" + "\n" +
+                            cityName + ", " + country
+                          + "\nTemperature: current = " + temperature + (char)176 + ", max-temp = " + maxTemp + (char)176 + " min-temp = " + minTemp + (char)176
+                          + "\nHumidity: " + humidity
+                          + "\nWind: Speed = " + windSpeed + ", Direction = " + windDirection
+                          + "\nClouds: " + cloud
+                          + "\nSunrise: " + sunrise
+                          + "\nSunset: " + sunset;
 
-
-
-
+            return data;
         }
     }
-
 }

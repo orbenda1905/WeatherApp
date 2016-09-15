@@ -10,9 +10,9 @@ using System.Xml.Linq;
 
 namespace WeatherApp
 {
-    class OpenWeatherService : IWeatherDataService
+    public class OpenWeatherService : IWeatherDataService
     {
-        string apiKey;
+        string apiKey = "87d6fc5d9a763fe927bfe1438407929f";
 
         private static OpenWeatherService instance;
 
@@ -46,21 +46,26 @@ namespace WeatherApp
 
         public WeatherData GetWeatherData(Location location)
         {
-
             var url = string.Format("http://api.openweathermap.org/data/2.5/weather?q=" + location.GetLocation() + "&units=metric&mode=xml&APPID=" + ApiKey);
             var wc = new WebClient();
+            
             string reply = wc.DownloadString(url);
-            Debug.WriteLine(reply);
-
+           
             if (true)//in case the xml is empty
             {
 
             }
 
             WeatherData weather = new WeatherData();
-
-
-            XDocument ob = XDocument.Parse(reply);
+            XDocument ob;
+            try
+            {
+                ob = XDocument.Parse(reply);
+            }
+            catch (Exception e)
+            {
+                throw new WeatherDataServiceException(e.Message + "\nerror: city not found");
+            }
             weather.cityName = ob.Root.Element("city").Attribute("name").Value;
             weather.temperature = ob.Root.Element("temperature").Attribute("value").Value;
             weather.maxTemp = ob.Root.Element("temperature").Attribute("max").Value;

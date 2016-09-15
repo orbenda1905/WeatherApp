@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
-    class WeatherDataServiceException
+    public class WeatherDataServiceException :Exception
     {
+        public WeatherDataServiceException()
+        {
+
+        }
+
+        public WeatherDataServiceException(string message) : base(message)
+        {
+
+        }
+
+        public WeatherDataServiceException(string message, Exception inner) : base(message, inner)
+        {
+
+        }
     }
 }

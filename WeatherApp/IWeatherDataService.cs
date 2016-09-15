@@ -9,6 +9,5 @@ namespace WeatherApp
     interface IWeatherDataService
     {
         WeatherData GetWeatherData(Location location);
-
     }
 }

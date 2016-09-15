@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
-    class Location
+    public class Location
     {
 
         private string city;
@@ -50,9 +50,5 @@ namespace WeatherApp
 
             return this.City + "," + this.Country;
         }
-        
- 
-
-        
     }
 }

@@ -18,7 +18,7 @@ namespace WeatherApp
                 case dataServices.OPEN_WEATHER_MAP:
                     return OpenWeatherService.Instance;
                 default:
-                    return OpenWeatherService.Instance;//because we don'w use another service
+                    return OpenWeatherService.Instance;//because we don't use another service
             }
         }
     }
