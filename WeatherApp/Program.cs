@@ -14,7 +14,7 @@ namespace WeatherApp
         static void Main(string[] args)
         {
             WeatherDataServiceFactory serviceFactory = new WeatherDataServiceFactory();
-            OpenWeatherService newService = serviceFactory.GetWeatherDataService(dataServices.OPEN_WEATHER_MAP);
+            IWeatherDataService newService = serviceFactory.GetWeatherDataService(dataServices.OPEN_WEATHER_MAP);
             var url = String.Format("http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&mode=xml&APPID=87d6fc5d9a763fe927bfe1438407929f");
             var wc = new WebClient();
             string reply = wc.DownloadString(url);
