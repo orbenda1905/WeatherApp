@@ -50,11 +50,6 @@ namespace WeatherApp
             var wc = new WebClient();
             
             string reply = wc.DownloadString(url);
-           
-            if (true)//in case the xml is empty
-            {
-
-            }
 
             WeatherData weather = new WeatherData();
             XDocument ob;
@@ -67,6 +62,10 @@ namespace WeatherApp
                 throw new WeatherDataServiceException(e.Message + "\nerror: city not found");
             }
             weather.cityName = ob.Root.Element("city").Attribute("name").Value;
+            weather.country = ob.Root.Element("city").Element("country").Value;
+            weather.id = ob.Root.Element("city").Attribute("id").Value;
+            weather.lon = ob.Root.Element("city").Element("coord").Attribute("lon").Value;
+            weather.lat = ob.Root.Element("city").Element("coord").Attribute("lat").Value;
             weather.temperature = ob.Root.Element("temperature").Attribute("value").Value;
             weather.maxTemp = ob.Root.Element("temperature").Attribute("max").Value;
 
@@ -77,7 +76,7 @@ namespace WeatherApp
             weather.cloud = ob.Root.Element("clouds").Attribute("name").Value;
             weather.sunrise = ob.Root.Element("city").Element("sun").Attribute("rise").Value.Substring(11);
             weather.sunset = ob.Root.Element("city").Element("sun").Attribute("set").Value.Substring(11);
-            weather.country = ob.Root.Element("city").Element("country").Value;
+
 
             return weather;
         }

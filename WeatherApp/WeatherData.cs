@@ -11,6 +11,10 @@ namespace WeatherApp
     public class WeatherData
     {
         public string cityName;
+        public string country;
+        public string id;
+        public string lon;
+        public string lat;
         public string temperature;
         public string maxTemp;
         public string minTemp;
@@ -20,15 +24,16 @@ namespace WeatherApp
         public string cloud;
         public string sunrise;
         public string sunset;
-        public string country;
+        
 
         public WeatherData() { }
 
         override
         public string ToString()
         {
-            string data = @"weather data:" + "\n" +
+            string data = "weather data:" + "\n" +
                             cityName + ", " + country
+                          + "\nId = " + id + ", lon = " + lon + ", lat = " + lat
                           + "\nTemperature: current = " + temperature + (char)176 + ", max-temp = " + maxTemp + (char)176 + " min-temp = " + minTemp + (char)176
                           + "\nHumidity: " + humidity
                           + "\nWind: Speed = " + windSpeed + ", Direction = " + windDirection

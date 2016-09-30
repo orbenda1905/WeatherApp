@@ -48,7 +48,7 @@ namespace WeatherApp
         public string GetLocation()
         {
 
-            return this.City + "," + this.Country;
+            return this.City + "," + this.Country;//even if the country isn't mentioned, the api is fine with that
         }
     }
 }

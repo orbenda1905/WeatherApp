@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48F0F59C-0DA4-4E4F-A7C7-32CB1D3F4768}</ProjectGuid>
+    <ProjectGuid>{E1A9FA94-376F-43B1-BDAF-3C4DBDB330EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WeatherAppTests</RootNamespace>
